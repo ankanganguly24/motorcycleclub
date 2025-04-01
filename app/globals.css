@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* 🎨 Colors */
+    --color-white: #FFFFFF;
+    --color-primary: #D5991C;
+    --color-secondary: #F0A916;
+    --color-tertiary: #6F531B;
+    --color-dark: #231F1F;
+    --color-muted: #3C301E;
+
+    /* 🎨 Fonts */
+    --font-body: var(--font-poppins);
+    --font-heading: var(--font-playfair);
+    --font-mono: var(--font-geist-mono);
+    --font-sans: var(--font-geist-sans);
+
+    /* 🎨 Theme */
+    --background: var(--color-white);
+    --foreground: var(--color-dark);
+  }
+
+  /* 🌙 Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--color-dark);
+      --foreground: var(--color-white);
+    }
+  }
+
+  /* ✨ Global Styles */
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* 📌 Headings */
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 0.8rem;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 0.6rem;
+  }
+
+  h4 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+    background: var(--color-muted);
+    padding: 0.5rem;
+    border-radius: 6px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* 🎨 Font Utilities */
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* 🎨 Text Colors */
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .text-tertiary {
+    color: var(--color-tertiary);
+  }
+
+  .text-dark {
+    color: var(--color-dark);
+  }
+
+  .text-muted {
+    color: var(--color-muted);
+  }
+
+  /* 🎨 Background Colors */
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  .bg-tertiary {
+    background-color: var(--color-tertiary);
+  }
+
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-muted {
+    background-color: var(--color-muted);
+  }
+
+  /* 📌 Spacing */
+  .padding-sm {
+    padding: 0.5rem;
+  }
+
+  .padding-md {
+    padding: 1rem;
+  }
+
+  .padding-lg {
+    padding: 2rem;
+  }
+
+  /* 📌 Border Radius */
+  .rounded-sm {
+    border-radius: 4px;
+  }
+
+  .rounded-md {
+    border-radius: 8px;
+  }
+
+  .rounded-lg {
+    border-radius: 12px;
+  }
+
+  /* 📌 Box Shadows */
+  .shadow-sm {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-md {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-lg {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 📌 Transitions */
+  .transition {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* 📌 Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slide-in {
+    animation: slideIn 0.6s ease-in-out;
+  }
 }
