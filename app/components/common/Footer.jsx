@@ -110,14 +110,10 @@ export function Footer() {
                   • Midnight Cruise Across the City 🌙
                 </Link>
               </li>
+            
               <li>
                 <Link href="#" className="hover:text-white">
-                  • Coastal Ride Expedition 🌊
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  • Desert Dune Adventure 🏜️
+                  • Dune Adventure 🏜️
                 </Link>
               </li>
             </ul>
