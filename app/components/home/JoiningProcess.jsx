@@ -12,7 +12,7 @@ export default function HowToJoin() {
       
       <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto">
         {/* Left Side: Icons with Arrows */}
-        <div className="flex flex-col items-center space-y-6 bg-tertiary p-6 rounded-lg shadow-lg md:w-1/3 mb-10">
+        <div className="flex flex-col items-center space-y-6 bg-tertiary p-6 rounded-lg shadow-lg md:w-1/3 w-[100%]  mb-10">
           <div className="flex flex-col items-center">
             <div className="bg-primary p-4 rounded-full shadow-lg">
               <UserPlus size={32} className="text-white" />

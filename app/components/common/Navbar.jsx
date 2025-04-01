@@ -72,37 +72,39 @@ const Navbar = () => {
 
       {/* Mobile Menu - Opens on Click */}
       {isOpen && (
-        <div className="md:hidden bg-primary p-5 rounded-lg mt-2">
-          <div className="flex flex-col gap-4 text-start">
-            {["/", "/about", "/events", "/contact"].map((path, index) => (
-              <Link 
-                key={index} 
-                href={path} 
-                className={`text-lg font-semibold text-white hover:underline ${
-                  active === path ? "border-b-2 border-white" : ""
-                }`}
-                onClick={() => {
-                  setActive(path);
-                  setIsOpen(false);
-                }}
-              >
-                {path === "/" ? "Home" : path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}
-              </Link>
-            ))}
-          </div>
+  <div className="md:hidden bg-primary p-5 rounded-lg mt-2">
+    <div className="flex flex-col gap-4 text-start">
+      {["/", "/about", "/events", "Gallery", "/contact"].map((path, index) => (
+        <Link 
+          key={index} 
+          href={path} 
+          className={`text-lg font-semibold text-white hover:underline ${active === path ? "border-b-2 border-white" : ""}`}
+          onClick={() => {
+            setActive(path);
+            setIsOpen(false);
+          }}
+        >
+          {path === "/" 
+            ? "Home" 
+            : path === "Gallery" 
+              ? "Gallery" // Display "Gallery" as is
+              : path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)} 
+        </Link>
+      ))}
+    </div>
 
-          {/* Contact Info */}
-        <div className="flex flex-col gap-4 mt-5">
-  <Link href="mailto:eemcsikkim@gmail.com" className="text-lg flex items-center gap-2 font-semibold text-white">
-    <Mail size={20} /> eemcsikkim@gmail.com
-  </Link>
-  <Link href="tel:7798761662" className="text-lg flex items-center gap-2 font-semibold text-white">
-    <Phone size={20} /> +91-7798761662
-  </Link>
-</div>
+    {/* Contact Info */}
+    <div className="flex flex-col gap-4 mt-5">
+      <Link href="mailto:eemcsikkim@gmail.com" className="text-lg flex items-center gap-2 font-semibold text-white">
+        <Mail size={20} /> eemcsikkim@gmail.com
+      </Link>
+      <Link href="tel:7798761662" className="text-lg flex items-center gap-2 font-semibold text-white">
+        <Phone size={20} /> +91-7798761662
+      </Link>
+    </div>
+  </div>
+)}
 
-        </div>
-      )}
     </>
   );
 };

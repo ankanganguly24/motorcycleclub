@@ -9,7 +9,7 @@ const AboutUS = () => {
       <About />
       <section className="my-12 max-w-4xl mx-auto bg-accent rounded-2xl p-8 text-white bg-zinc-900">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
-          Our Members 🏍️ <span className="text-xl">|</span> The Crew
+          Our Members 🏍️ 
         </h2>
         <p className="mb-6 opacity-90">
           We are a passionate community of riders united by the love for adventure. Our club consists of over 100 members, each bringing their own unique story to the group. 🌟

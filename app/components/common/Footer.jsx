@@ -55,35 +55,34 @@ export function Footer() {
             </ul>
           </div>
 
-          <div >
-            <h3 className="font-bold text-lg mb-4 ">Location & Contact</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li className="flex items-center gap-2">
-                <div className="w-full h-40">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905177.4237840321!2d88.46659555000001!3d27.598201049999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a56a5805eafb%3A0xa4c4b857c39b5a04!2sSikkim!5e0!3m2!1sen!2sin!4v1743524179728!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                  ></iframe>
-                </div>
-              </li>
-              <li className="flex items-center gap-2">
-                <span>📞</span>
-                <Link href="tel:+91-7798761662" className="hover:text-white">
-                +91-7798761662
-                </Link>
-              </li>
-              <li className="flex items-center gap-2">
-                <span>✉️</span>
-                <Link href="mailto:eemcsikkim@gmail.com" className="hover:text-white">
-                eemcsikkim@gmail.com
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div>
+  <h3 className="font-bold text-lg mb-4">Location & Contact</h3>
+  <div className="space-y-2 text-gray-400">
+    <li className="flex items-center gap-2">
+      <div className="relative w-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905177.4237840321!2d88.46659555000001!3d27.598201049999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a56a5805eafb%3A0xa4c4b857c39b5a04!2sSikkim!5e0!3m2!1sen!2sin!4v1743524179728!5m2!1sen!2sin"
+          allowFullScreen=""
+          loading="lazy"
+          className="w-full h-56 sm:h-72 lg:h-96 border-0 rounded-md"
+        ></iframe>
+      </div>
+    </li>
+    <li className="flex items-center gap-2">
+      <span>📞</span>
+      <Link href="tel:+91-7798761662" className="hover:text-white">
+        +91-7798761662
+      </Link>
+    </li>
+    <li className="flex items-center gap-2">
+      <span>✉️</span>
+      <Link href="mailto:eemcsikkim@gmail.com" className="hover:text-white">
+        eemcsikkim@gmail.com
+      </Link>
+    </li>
+  </div>
+</div>
+
 
           <div>
             <h3 className="font-bold text-lg mb-4">Latest Rides</h3>
