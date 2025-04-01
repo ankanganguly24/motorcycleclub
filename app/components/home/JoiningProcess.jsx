@@ -1,6 +1,7 @@
 import { ArrowDown, UserPlus, Bike, BadgeCheck } from "lucide-react";
 import Button from "../common/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HowToJoin() {
   return (
@@ -42,9 +43,11 @@ export default function HowToJoin() {
             Sign up, participate in our orientation ride, and become an official member
             to enjoy exclusive benefits and unforgettable journeys.
           </p>
-          <Button className="mt-6 bg-primary text-white px-8 py-3 rounded-lg shadow-lg hover:bg-primary-dark">
+          <Link href="/events" className="mt-6">
+          <Button className="mt-6 bg-primary text-white px-8 py-3 rounded-lg shadow-lg hover:bg-primary-dark" >
             Get Started
           </Button>
+          </Link>
         </div>
       </div>
     </section>

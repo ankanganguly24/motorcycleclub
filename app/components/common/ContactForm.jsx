@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { createClient } from '@supabase/supabase-js';
+import Button from './Button';
+
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -232,13 +234,22 @@ export function ContactForm() {
         <label className="text-white">I agree to the terms and conditions</label>
       </div>
       {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
+    
+      <p
+        className="cursor-pointer text-secondary hover:underline"
+        onClick={() => {
+          window.open('/qrCode.pdf', '_blank');
+        }}
+      >
+        Download QR Code for Registration
+      </p>
 
-      <button
+      <Button
         type="submit"
-        className="w-full bg-primary hover:bg-opacity-80 text-white font-bold py-3 rounded-lg"
+    
       >
         Submit Registration
-      </button>
+      </Button>
     </form>
   );
 }

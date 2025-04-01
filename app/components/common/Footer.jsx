@@ -20,45 +20,36 @@ export function Footer() {
               <span className="font-bold text-xl">Eastern Enfielders Sikkim MC</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Connecting passionate riders, fostering adventure, and creating lifelong memories since 2005. 🏍️🌍
+              Connecting passionate riders, fostering adventure, and creating lifelong memories since 2018. 🏍️🌍
             </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-gray-400 hover:text-white">
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" fill="none" />
-                  <path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2" />
-                </svg>
-                <span className="sr-only">Custom Social 1</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="4" y="4" width="16" height="16" stroke="white" strokeWidth="2" fill="none" />
-                  <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="2" fill="none" />
-                </svg>
-                <span className="sr-only">Custom Social 2</span>
-              </Link>
-            </div>
+        
           </div>
 
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white flex items-center gap-1">
+                <Link href="/about" className="text-gray-400 hover:text-white flex items-center gap-1">
                   <ChevronRight className="h-4 w-4" />
                   <span>About Us</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white flex items-center gap-1">
+                <Link href="/Gallery" className="text-gray-400 hover:text-white flex items-center gap-1">
                   <ChevronRight className="h-4 w-4" />
                   <span>Gallery</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white flex items-center gap-1">
+                <Link href="/contact" className="text-gray-400 hover:text-white flex items-center gap-1">
                   <ChevronRight className="h-4 w-4" />
                   <span>Contact Us</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/registrationview" className="text-gray-400 hover:text-white flex items-center gap-1">
+                  <ChevronRight className="h-4 w-4" />
+                  <span>Registered people</span>
                 </Link>
               </li>
             </ul>
