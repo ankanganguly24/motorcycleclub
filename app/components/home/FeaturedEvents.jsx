@@ -27,11 +27,7 @@ export default function FeaturedEvents() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-        <Button variant="primary" className="mt-4">
-          View All Events
-        </Button>
-        </div>
+    
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { Users, Shield, Star, Wrench, ShoppingBag, AlarmClock } from "lucide-react";
 import BenefitCard from "../common/BenefitsCard";
+import Link from "next/link";
 
 export default function Whyus() {
   return (
@@ -21,9 +22,11 @@ export default function Whyus() {
 
         {/* Centered Button */}
         <div className="text-center mt-10">
+        <Link href="/contact">
           <button className="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg text-lg font-semibold">
             Become a Member Today!
           </button>
+        </Link>
         </div>
       </div>
     </section>

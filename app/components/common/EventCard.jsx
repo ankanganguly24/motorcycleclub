@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Calendar, MapPin } from "lucide-react";
+import Button from "./Button";
+import Link from "next/link";
 
 export default function EventCard({ title, date, location, image, description }) {
   return (
@@ -30,9 +32,11 @@ export default function EventCard({ title, date, location, image, description })
 
         {/* Button */}
         <div className="mt-6">
-          <button className="bg-primary hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-semibold w-full sm:w-auto">
-            Join Event
-          </button>
+        <Link href="/events">
+        <Button variant="primary" className="w-full">
+          Visit Events
+        </Button>
+        </Link>
         </div>
       </div>
     </div>

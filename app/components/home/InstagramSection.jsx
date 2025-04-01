@@ -45,7 +45,7 @@ export function InstagramFeed() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
       {instagramPosts.map((post) => (
-        <Link href="#" key={post.id} className="group relative overflow-hidden rounded-lg">
+        <Link href="/Gallery" key={post.id} className="group relative overflow-hidden rounded-lg">
           <Image
             src={post.image || "/placeholder.svg"}
             alt={`Instagram post ${post.id}`}
@@ -74,20 +74,20 @@ export default function SocialMediaSection() {
           Check out our latest adventures and connect with us on social media.
         </p>
         <InstagramFeed />
-        <div className="flex justify-center gap-6 mt-12">
-          <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full">
+        {/* <div className="flex justify-center gap-6 mt-12"> */}
+          {/* <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full">
             <HandMetal className="h-6 w-6 text-primary" />
             <span className="sr-only">Facebook</span>
-          </Link>
-          <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full">
+          </Link> */}
+          {/* <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full">
             <Medal className="h-6 w-6 text-primary" />
             <span className="sr-only">Instagram</span>
           </Link>
           <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full">
             <GlobeIcon className="h-6 w-6 text-primary" />
             <span className="sr-only">YouTube</span>
-          </Link>
-        </div>
+          </Link> */}
+        {/* </div> */}
       </div>
     </section>
   )

@@ -27,15 +27,16 @@ const ContactAndLocation = () => {
             <div className="space-y-4 text-white">
               <div className="flex items-start gap-4">
                 <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p>123 Rider Avenue, Motorcycle City, MC 12345</p>
+                <p>Sikkim, India</p>
               </div>
               <div className="flex items-start gap-4">
                 <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p>info@easterneaglemc.com</p>
+                <p>eemcsikkim@gmail.com
+                </p>
               </div>
               <div className="flex items-start gap-4">
                 <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p>(555) 123-4567</p>
+                <p>+91-7798761662</p>
               </div>
               <div className="flex items-start gap-4">
                 <Calendar className="h-5 w-5 text-primary mt-1 flex-shrink-0" />

@@ -81,14 +81,14 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>
-                <Link href="tel:+1234567890" className="hover:text-white">
-                  +1 (234) 567-890
+                <Link href="tel:+91-7798761662" className="hover:text-white">
+                +91-7798761662
                 </Link>
               </li>
               <li className="flex items-center gap-2">
                 <span>✉️</span>
-                <Link href="mailto:contact@easternenfielders.com" className="hover:text-white">
-                  contact@easternenfielders.com
+                <Link href="mailto:eemcsikkim@gmail.com" className="hover:text-white">
+                eemcsikkim@gmail.com
                 </Link>
               </li>
             </ul>

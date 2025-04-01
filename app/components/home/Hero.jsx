@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import heroImage from "../../../public/whatsappimages/heroImage.jpeg";
 import Button from "../common/Button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -21,9 +22,11 @@ const Hero = () => {
       <div className="hero-content">
         <h1>Ride Safe, Ride Free – Join the Brotherhood</h1>
         <p>Connecting passionate riders, fostering adventure, and creating lifelong memories.</p>
-        <Button variant="primary" className="mt-4">
+        <Link href="/contact">
+        <Button variant="primary"  className="mt-4">
             Join Us Now
         </Button>
+        </Link>
       </div>
     </section>
   );
