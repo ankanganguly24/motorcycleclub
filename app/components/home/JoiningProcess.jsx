@@ -38,10 +38,10 @@ export default function HowToJoin() {
         {/* Right Side: Title, Text, and Button */}
         <div className="max-w-md text-center md:text-left md:ml-12">
             <Image src="/whatsappimages/image2.jpeg" alt="Join Us" width={400} height={400} className="rounded-lg mb-6" />
-          <h3 className="text-2xl font-bold text-primary">Join the Adventure</h3>
+          <h3 className="text-2xl font-bold text-primary">Join Us</h3>
           <p className="text-gray-400 mt-4">
-            Sign up, participate in our orientation ride, and become an official member
-            to enjoy exclusive benefits and unforgettable journeys.
+          If you’re a passionate rider who shares the love for Royal Enfield motorcycles and the thrill of exploration, Eastern Enfielders invites you to join our community. Whether you’re a seasoned motorcyclist or just getting started, we welcome riders of all levels who are eager to experience the joy of the open road.
+          Come ride with us and live by our motto—“Ride Safe, Ride Again.”
           </p>
           <Link href="/events" className="mt-6">
           <Button className="mt-6 bg-primary text-white px-8 py-3 rounded-lg shadow-lg hover:bg-primary-dark" >

@@ -17,16 +17,8 @@
     --font-sans: var(--font-geist-sans);
 
     /* 🎨 Theme */
-    --background: var(--color-white);
-    --foreground: var(--color-dark);
-  }
-
-  /* 🌙 Dark Mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: var(--color-dark);
-      --foreground: var(--color-white);
-    }
+    --background: var(--color-dark);
+    --foreground: var(--color-white);
   }
 
   /* ✨ Global Styles */
