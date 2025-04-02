@@ -14,11 +14,10 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Eastern Enfielders Sikkim MC</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Eastern Enfielders Sikkim Motorcycle Club</h2>
             <p className="text-gray-300 mb-6">
-              Founded in 2017, Eastern Enfielders Sikkim MC has grown from a small group of passionate riders to one
-              of the most respected motorcycle clubs in the region. We pride ourselves on our commitment to safety,
-              community, and the pure joy of riding.
+            Eastern Enfielders Motorcycle Club, Sikkim, founded in 2019 by a group of dedicated motorcycle enthusiasts, our club is dedicated to the love of Royal Enfield motorcycles and the thrill of riding through the beautiful and rugged terrains of Sikkim and beyond. With a deep-rooted belief in riding safely and embracing the spirit of adventure, our motto—“Ride Safe, Ride Again”—reflects our commitment to enjoying the freedom of the open road while ensuring that we ride responsibly and return safely to ride again.
+From conquering mountain roads to exploring new paths, the Eastern Enfielders is a family of riders who share the same passion, thrill, and respect for the road. We are always eager to welcome new riders who want to experience the joy of motorcycling while building lifelong friendships along the way.
             </p>
             <div className="grid grid-cols-3 gap-4 mb-8 md:bg-wtertiary md:p-2 rounded-lg shadow-lg">
               <div className="text-center ">
@@ -26,8 +25,8 @@ const About = () => {
                 <p className="text-sm text-gray-400">Years Experience</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary">50+</p>
-                <p className="text-sm text-gray-400">Active Members</p>
+                <p className="text-3xl font-bold text-primary">15</p>
+                <p className="text-sm text-gray-400">Core Members</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">120+</p>

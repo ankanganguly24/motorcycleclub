@@ -7,7 +7,7 @@ export default function FeaturedEvents() {
     {
       title: "Statehood riders meet sikkim 2025",
       date: "May 15-17, 2025",
-      location: "Sikkim, India",
+      location: "Saramsa garden",
       image: "/whatsappimages/image11.jpeg",
       description: "Our signature event with breathtaking views and challenging roads.",
     },

@@ -26,15 +26,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Eastern Enfielders Sikkim MC",
-  description: "Connecting passionate riders, fostering adventure, and creating lifelong memories since 2005.",
+  title: "Eastern Enfielders Sikkim Motorcycle Club",
+  description: "Connecting passionate riders, fostering adventure, and creating lifelong memories since 2019.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${playfair.variable} antialiased p-md`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${playfair.variable} antialiased p-sm md:p-md`}
       >
         <Navbar />
         {children}

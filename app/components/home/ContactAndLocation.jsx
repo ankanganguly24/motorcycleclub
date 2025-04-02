@@ -14,7 +14,8 @@ const ContactAndLocation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-zinc-900 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold mb-6 text-white">Register Now</h3>
+            <h3 className="text-2xl font-bold mb-6 text-white">Registration form 
+            Statehood riders meet Sikkim(May 15,16,17-2025)</h3>
             <ContactForm />
           </div>
 
@@ -27,7 +28,7 @@ const ContactAndLocation = () => {
             <div className="space-y-4 text-white">
               <div className="flex items-start gap-4">
                 <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p>Sikkim, India</p>
+                <p>Sikkim, Saramsa garden, India</p>
               </div>
               <div className="flex items-start gap-4">
                 <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />

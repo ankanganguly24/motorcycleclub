@@ -12,7 +12,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Image
                 src={logo}
-                alt="Eastern Eagle MC Logo"
+                alt="Eastern Enfielders Sikkim Motorcycle Club"
                 width={100}
                 height={100}
                 className="rounded-full"
@@ -20,7 +20,7 @@ export function Footer() {
               <span className="font-bold text-xl">Eastern Enfielders Sikkim MC</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Connecting passionate riders, fostering adventure, and creating lifelong memories since 2018. 🏍️🌍
+              Connecting passionate riders, fostering adventure, and creating lifelong memories since 2019. 🏍️🌍
             </p>
         
           </div>
@@ -111,7 +111,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-zinc-800 mt-12 pt-6 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Eastern Eagle Motorcycle Club. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Eastern Enfielders Sikkim Motorcycle Club. All rights reserved.</p>
           <p className="mt-2">
             Made with <span className="text-red-500">❤️</span> by{" "}
             <Link href="https://kiwemedia.com" className="text-white hover:text-red-500">

@@ -63,7 +63,7 @@ const Navbar = () => {
         </button>
 
         {/* Logo (Outside on the Right) */}
-        <div className="absolute right-5 top-4">
+        <div className="absolute right-5 top-2">
           <Link href="/">
             <Image src={logo} alt="logo" width={60} height={60} className="rounded-full" />
           </Link>
