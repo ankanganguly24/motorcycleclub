@@ -9,7 +9,7 @@ export default function FeaturedEvents() {
       date: "May 15-17, 2025",
       location: "Saramsa garden",
       image: "/whatsappimages/image11.jpeg",
-      description: "Our signature event with breathtaking views and challenging roads.",
+      description: "If you’re a passionate rider who shares the love for Royal Enfield motorcycles and the thrill of exploration, Eastern Enfielders invites you to join our community. Whether you’re a seasoned motorcyclist or just getting started, we welcome riders of all levels who are eager to experience the joy of the open road.Come ride with us and live by our motto— Ride Safe, Ride Again .",
     },
   ];
 

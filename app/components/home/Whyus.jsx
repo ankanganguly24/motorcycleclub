@@ -113,13 +113,13 @@ export default function Whyus() {
           </div>
         </div>
 
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <Link href="/contact">
             <button className="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg text-lg font-semibold">
               Become a Member Today!
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
