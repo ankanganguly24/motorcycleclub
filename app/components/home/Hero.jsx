@@ -24,7 +24,7 @@ const Hero = () => {
         <p>Connecting passionate riders, fostering adventure, and creating lifelong memories.</p>
         <Link href="/contact">
         <Button variant="primary"  className="mt-4">
-            Join Us Now
+            Join our event
         </Button>
         </Link>
       </div>

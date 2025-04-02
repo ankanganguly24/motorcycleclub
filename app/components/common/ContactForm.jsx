@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { createClient } from '@supabase/supabase-js';
 import Button from './Button';
+import { useState } from 'react';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -33,6 +34,7 @@ const contactSchema = z.object({
   });
 
 export function ContactForm() {
+  const [showQRModal, setShowQRModal] = useState(false);
   const {
     register,
     handleSubmit,
@@ -58,198 +60,224 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Personal Information */}
-        <div>
-          <input
-            {...register('full_name')}
-            placeholder="Full Name"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.full_name && <p className="text-red-500 text-sm">{errors.full_name.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('age')}
-            placeholder="Age"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.age && <p className="text-red-500 text-sm">{errors.age.message}</p>}
-        </div>
-        <div>
-          <select {...register('gender')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-          {errors.gender && <p className="text-red-500 text-sm">{errors.gender.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('blood_group')}
-            placeholder="Blood Group"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.blood_group && <p className="text-red-500 text-sm">{errors.blood_group.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('email')}
-            type="email"
-            placeholder="Email"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('club_name')}
-            placeholder="Club Name (Optional)"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Personal Information */}
+          <div>
+            <input
+              {...register('full_name')}
+              placeholder="Full Name"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.full_name && <p className="text-red-500 text-sm">{errors.full_name.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('age')}
+              placeholder="Age"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.age && <p className="text-red-500 text-sm">{errors.age.message}</p>}
+          </div>
+          <div>
+            <select {...register('gender')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            {errors.gender && <p className="text-red-500 text-sm">{errors.gender.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('blood_group')}
+              placeholder="Blood Group"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.blood_group && <p className="text-red-500 text-sm">{errors.blood_group.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('email')}
+              type="email"
+              placeholder="Email"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('club_name')}
+              placeholder="Club Name (Optional)"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+          </div>
+
+          {/* Event Details */}
+          <div>
+            <select {...register('solo')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">Solo Rider?</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            {errors.solo && <p className="text-red-500 text-sm">{errors.solo.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('state')}
+              placeholder="State"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.state && <p className="text-red-500 text-sm">{errors.state.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('event_name')}
+              value="Statehood Riders Meet Sikkim 2025"
+              readOnly
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+          </div>
+          <div>
+            <select {...register('food_preference')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">Food Preference</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Non-Vegetarian">Non-Vegetarian</option>
+            </select>
+            {errors.food_preference && <p className="text-red-500 text-sm">{errors.food_preference.message}</p>}
+          </div>
+          <div>
+            <select {...register('tshirt_size')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">T-Shirt Size</option>
+              {['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'].map(size => (
+                <option key={size} value={size}>{size}</option>
+              ))}
+            </select>
+            {errors.tshirt_size && <p className="text-red-500 text-sm">{errors.tshirt_size.message}</p>}
+          </div>
+
+          {/* Motorcycle Details */}
+          <div>
+            <input
+              {...register('motorcycle_model')}
+              placeholder="Motorcycle Model"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.motorcycle_model && <p className="text-red-500 text-sm">{errors.motorcycle_model.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('registration_number')}
+              placeholder="Registration Number"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.registration_number && <p className="text-red-500 text-sm">{errors.registration_number.message}</p>}
+          </div>
+
+          {/* Emergency Contact */}
+          <div>
+            <input
+              {...register('emergency_contact_name')}
+              placeholder="Emergency Contact Name"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.emergency_contact_name && <p className="text-red-500 text-sm">{errors.emergency_contact_name.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('emergency_contact_number')}
+              placeholder="Emergency Contact Number"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+            {errors.emergency_contact_number && <p className="text-red-500 text-sm">{errors.emergency_contact_number.message}</p>}
+          </div>
+
+          {/* Payment Details */}
+          <div>
+            <select {...register('payment_mode')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">Payment Mode</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Cash">Cash</option>
+              <option value="Other">Other</option>
+            </select>
+            {errors.payment_mode && <p className="text-red-500 text-sm">{errors.payment_mode.message}</p>}
+          </div>
+          <div>
+            <select {...register('payment_status')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
+              <option value="">Payment Status</option>
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending</option>
+            </select>
+            {errors.payment_status && <p className="text-red-500 text-sm">{errors.payment_status.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('payment_ref_no')}
+              placeholder="Payment Reference Number (Optional)"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+          </div>
+          <div>
+            <input
+              {...register('payment_details')}
+              placeholder="Payment Details (Optional)"
+              className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            />
+          </div>
         </div>
 
-        {/* Event Details */}
-        <div>
-          <select {...register('solo')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">Solo Rider?</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-          {errors.solo && <p className="text-red-500 text-sm">{errors.solo.message}</p>}
-        </div>
-        <div>
+        {/* Terms and Conditions */}
+        <div className="flex items-center gap-2">
           <input
-            {...register('state')}
-            placeholder="State"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
+            type="checkbox"
+            {...register('terms_and_conditions')}
+            className="w-4 h-4 bg-zinc-800 border border-zinc-700 rounded"
           />
-          {errors.state && <p className="text-red-500 text-sm">{errors.state.message}</p>}
+          <label className="text-white">I agree to the terms and conditions</label>
         </div>
-        <div>
-          <input
-            {...register('event_name')}
-            value="Statehood Riders Meet Sikkim 2025"
-            readOnly
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-        </div>
-        <div>
-          <select {...register('food_preference')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">Food Preference</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Non-Vegetarian">Non-Vegetarian</option>
-          </select>
-          {errors.food_preference && <p className="text-red-500 text-sm">{errors.food_preference.message}</p>}
-        </div>
-        <div>
-          <select {...register('tshirt_size')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">T-Shirt Size</option>
-            {['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'].map(size => (
-              <option key={size} value={size}>{size}</option>
-            ))}
-          </select>
-          {errors.tshirt_size && <p className="text-red-500 text-sm">{errors.tshirt_size.message}</p>}
-        </div>
+        {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
+      
+        <p
+          className="cursor-pointer text-secondary hover:underline"
+          onClick={() => setShowQRModal(true)}
+        >
+          Show QR Code for Registration
+        </p>
 
-        {/* Motorcycle Details */}
-        <div>
-          <input
-            {...register('motorcycle_model')}
-            placeholder="Motorcycle Model"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.motorcycle_model && <p className="text-red-500 text-sm">{errors.motorcycle_model.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('registration_number')}
-            placeholder="Registration Number"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.registration_number && <p className="text-red-500 text-sm">{errors.registration_number.message}</p>}
-        </div>
+        <Button type="submit">
+          Submit Registration
+        </Button>
+      </form>
 
-        {/* Emergency Contact */}
-        <div>
-          <input
-            {...register('emergency_contact_name')}
-            placeholder="Emergency Contact Name"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.emergency_contact_name && <p className="text-red-500 text-sm">{errors.emergency_contact_name.message}</p>}
+      {showQRModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowQRModal(false)}>
+          <div 
+            className="bg-zinc-800 rounded-lg w-full h-[90vh] max-h-[90vh] flex flex-col overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-end p-2 border-b border-zinc-700">
+              <button 
+                onClick={() => setShowQRModal(false)}
+                className="text-white hover:text-gray-300 p-2 text-lg"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex-1 relative w-full h-full">
+              <object
+                data="/qrCode.pdf"
+                type="application/pdf"
+                className="absolute inset-0 w-full h-full"
+              >
+                <p className="text-white text-center p-4">
+                  Unable to display PDF. <a href="/qrCode.pdf" className="text-blue-400" target="_blank" rel="noopener noreferrer">Click here to download</a>
+                </p>
+              </object>
+            </div>
+          </div>
         </div>
-        <div>
-          <input
-            {...register('emergency_contact_number')}
-            placeholder="Emergency Contact Number"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-          {errors.emergency_contact_number && <p className="text-red-500 text-sm">{errors.emergency_contact_number.message}</p>}
-        </div>
-
-        {/* Payment Details */}
-        <div>
-          <select {...register('payment_mode')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">Payment Mode</option>
-            <option value="Bank Transfer">Bank Transfer</option>
-            <option value="Cash">Cash</option>
-            <option value="Other">Other</option>
-          </select>
-          {errors.payment_mode && <p className="text-red-500 text-sm">{errors.payment_mode.message}</p>}
-        </div>
-        <div>
-          <select {...register('payment_status')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
-            <option value="">Payment Status</option>
-            <option value="Paid">Paid</option>
-            <option value="Pending">Pending</option>
-          </select>
-          {errors.payment_status && <p className="text-red-500 text-sm">{errors.payment_status.message}</p>}
-        </div>
-        <div>
-          <input
-            {...register('payment_ref_no')}
-            placeholder="Payment Reference Number (Optional)"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-        </div>
-        <div>
-          <input
-            {...register('payment_details')}
-            placeholder="Payment Details (Optional)"
-            className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
-          />
-        </div>
-      </div>
-
-      {/* Terms and Conditions */}
-      <div className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          {...register('terms_and_conditions')}
-          className="w-4 h-4 bg-zinc-800 border border-zinc-700 rounded"
-        />
-        <label className="text-white">I agree to the terms and conditions</label>
-      </div>
-      {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
-    
-      <p
-        className="cursor-pointer text-secondary hover:underline"
-        onClick={() => {
-          window.open('/qrCode.pdf', '_blank');
-        }}
-      >
-        Download QR Code for Registration
-      </p>
-
-      <Button
-        type="submit"
-    
-      >
-        Submit Registration
-      </Button>
-    </form>
+      )}
+    </>
   );
 }

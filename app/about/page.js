@@ -12,7 +12,7 @@ const AboutUS = () => {
           Our Members 🏍️ 
         </h2>
         <p className="mb-6 opacity-90">
-          We are a passionate community of riders united by the love for adventure. Our club consists of over 100 members, each bringing their own unique story to the group. 🌟
+          We are a passionate community of riders united by the love for adventure. Our club consists of over 15 core members, each bringing their own unique story to the group. 🌟
         </p>
         <ul className="space-y-4 divide-y divide-white/20">
           <li className="pt-4 flex items-start gap-3">

@@ -87,7 +87,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Latest Rides</h3>
             <p className="text-gray-400 mb-4">
-              Check out our recent rides and thrilling adventures. Join us on our next journey! 🏍️🚀
+              Check out our recent rides and thrilling adventures. Join us on our event! 🏍️🚀
             </p>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -111,7 +111,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-zinc-800 mt-12 pt-6 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Eastern Enfielders Sikkim Motorcycle Club. All rights reserved.</p>
+          <p>2025, Eastern Enfielders Sikkim Motorcycle Club. All rights reserved.</p>
           <p className="mt-2">
             Made with <span className="text-red-500">❤️</span> by{" "}
             <Link href="https://kiwemedia.com" className="text-white hover:text-red-500">
