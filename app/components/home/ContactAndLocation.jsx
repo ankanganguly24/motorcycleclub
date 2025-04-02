@@ -83,6 +83,17 @@ const ContactAndLocation = () => {
                     <p className="font-semibold">Karma Bhutia</p>
                     <p className="text-zinc-400">Singtam | +91-973341636</p>
                   </div>
+
+                  <div>
+                    <p className="font-semibold">MEENAKCHI KANTA SHARMA</p>
+                    <p className="text-zinc-400">GANGTOK | +91-816136419</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold">TSHERING SHERPA</p>
+                    <p className="text-zinc-400">ASSAM LINGEY | +91-9775647919</p>
+                  </div>
+
                 </div>
               </div>
             </div>
