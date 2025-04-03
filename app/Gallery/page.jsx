@@ -16,7 +16,6 @@ const galleryItems = [
   { id: 11, title: "Charity Ride", description: "Riding for a cause" },
   { id: 12, title: "Off-Road Day", description: "Dirt and adventure" },
   { id: 13, title: "Club Anniversary", description: "Celebrating brotherhood" },
-  { id: 14, title: "Training Camp", description: "Skills development" },
 ];
 
 const Gallery = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import heroImage from "../../../public/whatsappimages/heroImage.jpeg";
+import heroImage from "../../../public/gallery/image.png";
 import Button from "../common/Button";
 import Link from "next/link";
 

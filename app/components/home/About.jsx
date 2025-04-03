@@ -3,8 +3,9 @@ import Image from "next/image";
 import Button from "../common/Button";
 
 import image1 from "../../../public/whatsappimages/image1.jpeg";
-import image2 from "../../../public/whatsappimages/image2.jpeg";
-import image3 from "../../../public/whatsappimages/image3.jpeg";
+import image2 from "../../../public/whatsappimages/image11.jpeg";
+import image3 from "../../../public/whatsappimages/image12.jpeg";
+
 import Carousel from "../common/Caraousel";
 import Link from "next/link";
 
