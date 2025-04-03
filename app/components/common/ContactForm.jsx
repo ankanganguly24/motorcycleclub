@@ -226,7 +226,7 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Terms and Conditions */}
+        {/* Terms and Conditions */} <h4>Registration fee -  <span className='text-red-500'> ₹3000 only </span></h4>
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
@@ -237,16 +237,27 @@ export function ContactForm() {
         </div>
         {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
       
-        <p
-          className="cursor-pointer text-secondary hover:underline"
+      <div className='flex flex-col space-y-4' >
+      <Button
           onClick={() => setShowQRModal(true)}
         >
           Show QR Code for Registration
-        </p>
+        </Button>
+        <Button 
+  className="!bg-green-500 text-white" 
+  onClick={() => {
+    window.open("https://chat.whatsapp.com/LwCb8wZpTEw5oVi1swqoCG", "_blank");
+  }}
+> 
+  Drop the payment screenshot here 📲  
+</Button>
+
 
         <Button type="submit">
           Submit Registration
         </Button>
+      </div>
+      
       </form>
 
       {showQRModal && (

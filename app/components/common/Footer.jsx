@@ -61,7 +61,7 @@ export function Footer() {
     <li className="flex items-center gap-2">
       <div className="relative w-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905177.4237840321!2d88.46659555000001!3d27.598201049999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a56a5805eafb%3A0xa4c4b857c39b5a04!2sSikkim!5e0!3m2!1sen!2sin!4v1743524179728!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.151620090932!2d88.59487329999999!3d27.277124999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a5ccb0fcb08b%3A0x5ecdf68eebdd12b4!2sSaramsa%20Garden!5e0!3m2!1sen!2sin!4v1743691699523!5m2!1sen!2sin"
           allowFullScreen=""
           loading="lazy"
           className="w-full h-56 sm:h-72 lg:h-96 border-0 rounded-md"

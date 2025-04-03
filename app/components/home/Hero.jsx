@@ -20,7 +20,7 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="hero-content">
-        <h1>Ride Safe, Ride Free – Join the Brotherhood</h1>
+        <h1>Ride Safe, Ride Again</h1>
         <p>Connecting passionate riders, fostering adventure, and creating lifelong memories.</p>
         <Link href="/events">
         <Button variant="primary"  className="mt-4">
