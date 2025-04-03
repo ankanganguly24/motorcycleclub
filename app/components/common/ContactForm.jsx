@@ -27,8 +27,8 @@ const contactSchema = z.object({
     emergency_contact_name: z.string().min(2, 'Emergency Contact Name is required'),
     emergency_contact_number: z.string().min(10, 'Valid contact number is required'),
     payment_status: z.enum(['Paid', 'Pending']),
-    payment_ref_no: z.string().optional(),
-    payment_mode: z.enum(['Bank Transfer', 'Cash', 'Other']),
+    payment_ref_no: z.string().min(1, 'Payment reference number is required'),
+    payment_mode: z.literal('Online'),
     payment_details: z.string().optional(),
     terms_and_conditions: z.boolean().refine((val) => val === true, 'You must agree to the terms and conditions'),
   });
@@ -187,7 +187,7 @@ export function ContactForm() {
           <div>
             <input
               {...register('emergency_contact_number')}
-              placeholder="Emergency Contact Number"
+              placeholder="Contact Number"
               className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
             />
             {errors.emergency_contact_number && <p className="text-red-500 text-sm">{errors.emergency_contact_number.message}</p>}
@@ -197,9 +197,7 @@ export function ContactForm() {
           <div>
             <select {...register('payment_mode')} className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg">
               <option value="">Payment Mode</option>
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="Cash">Cash</option>
-              <option value="Other">Other</option>
+              <option value="Online">Online</option>
             </select>
             {errors.payment_mode && <p className="text-red-500 text-sm">{errors.payment_mode.message}</p>}
           </div>
@@ -214,9 +212,10 @@ export function ContactForm() {
           <div>
             <input
               {...register('payment_ref_no')}
-              placeholder="Payment Reference Number (Optional)"
+              placeholder="Payment Reference Number"
               className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
             />
+            {errors.payment_ref_no && <p className="text-red-500 text-sm">{errors.payment_ref_no.message}</p>}
           </div>
           <div>
             <input

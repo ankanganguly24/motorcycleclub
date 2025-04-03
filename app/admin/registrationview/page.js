@@ -84,7 +84,7 @@ export default function RegistrationView() {
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Motorcycle Model</th>
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Registration Number</th>
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Emergency Contact Name</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Emergency Contact Number</th>
+                  <th className="px-12 py-6 text-xlfont-semibold border-b">Contact Number</th>
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Status</th>
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Ref No</th>
                   <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Mode</th>

@@ -20,13 +20,7 @@ const EventsPage = () => {
       </section>
 
       {/* Registration Form */}
-      <section className="my-12 max-w-4xl mx-auto bg-zinc-900 rounded-2xl p-8 text-white">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-        Registration form 
-Statehood riders meet Sikkim(May 15,16,17-2025)📝
-        </h2>
-        <ContactForm />
-      </section>
+  
 
       {/* Upcoming Events */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">

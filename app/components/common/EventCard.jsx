@@ -32,9 +32,9 @@ export default function EventCard({ title, date, location, image, description })
 
         {/* Button */}
         <div className="mt-6">
-        <Link href="/events">
+        <Link href="/registration">
         <Button variant="primary" className="w-full">
-          Visit Events
+          Join this event
         </Button>
         </Link>
         </div>
