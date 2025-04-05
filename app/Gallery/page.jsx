@@ -5,7 +5,6 @@ import Image from 'next/image';
 const galleryItems = [
   { id: 1, title: "Riders Meet 2023", description: "Annual gathering of motorcycle enthusiasts" },
   { id: 2, title: "Mountain Expedition", description: "Conquering the Himalayan trails" },
-  { id: 3, title: "Community Service", description: "Giving back to society" },
   { id: 4, title: "Night Riders", description: "Urban adventure after dark" },
   { id: 5, title: "Track Day", description: "Speed and precision" },
   { id: 6, title: "Breakfast Ride", description: "Morning motivation" },
