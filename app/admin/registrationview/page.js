@@ -50,6 +50,36 @@ export default function RegistrationView() {
     setPassword(e.target.value);
   };
 
+
+
+  const downloadAsTable = () => {
+    const tableHTML = `
+      <html>
+        <head>
+          <style>
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid black; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+          </style>
+        </head>
+        <body>
+          <h2>Registrations List</h2>
+          ${document.querySelector('table').outerHTML}
+        </body>
+      </html>
+    `;
+
+    const blob = new Blob([tableHTML], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'registrations.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="container mx-auto px-6 py-8">
       <h1 className="text-3xl font-semibold mb-6 text-center text-white">Registrations</h1>
@@ -66,63 +96,71 @@ export default function RegistrationView() {
 
       <div className={`relative ${!isUnlocked ? 'filter blur-md pointer-events-none' : ''}`}>
         {registrations.length > 0 ? (
-          <div className="overflow-x-auto bg-gray-900 shadow-md rounded-lg">
-            <table className="min-w-full table-auto text-sm text-left bg-gray-900">
-              <thead className="bg-gray-900 text-white">
-                <tr>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Full Name</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Age</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Gender</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Blood Group</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Email</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Club Name</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Solo</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">State</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Event Name</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Food Preference</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">T-Shirt Size</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Motorcycle Model</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Registration Number</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Emergency Contact Name</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Contact Number</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Status</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Ref No</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Mode</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Details</th>
-                  <th className="px-12 py-6 text-xlfont-semibold border-b">Terms and Conditions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {registrations.map((reg, index) => (
-                  <tr
-                    key={reg.id}
-                    className={`border-b ${index % 2 === 0 ? "bg-gray-900" : "bg-gray-800"} `}
-                  >
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.full_name}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.age}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.gender}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.blood_group}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.email}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.club_name || "-"}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.solo}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.state}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.event_name}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.food_preference}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.tshirt_size}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.motorcycle_model}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.registration_number}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.emergency_contact_name}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.emergency_contact_number}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_status}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_ref_no || "-"}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_mode}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_details || "-"}</td>
-                    <td className="px-12 py-6 text-xlfont-semibold">{reg.terms_and_conditions ? "Agreed" : "Not Agreed"}</td>
+          <>
+            <div className="mb-4 flex justify-end">
+        
+              <Button onClick={downloadAsTable}>
+                Download Table
+              </Button>
+            </div>
+            <div className="overflow-x-auto bg-gray-900 shadow-md rounded-lg">
+              <table className="min-w-full table-auto text-sm text-left bg-gray-900">
+                <thead className="bg-gray-900 text-white">
+                  <tr>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Full Name</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Age</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Gender</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Blood Group</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Email</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Club Name</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Solo</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">State</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Event Name</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Food Preference</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">T-Shirt Size</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Motorcycle Model</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Registration Number</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Emergency Contact Name</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Contact Number</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Status</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Ref No</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Mode</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Payment Details</th>
+                    <th className="px-12 py-6 text-xlfont-semibold border-b">Terms and Conditions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {registrations.map((reg, index) => (
+                    <tr
+                      key={reg.id}
+                      className={`border-b ${index % 2 === 0 ? "bg-gray-900" : "bg-gray-800"} `}
+                    >
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.full_name}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.age}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.gender}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.blood_group}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.email}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.club_name || "-"}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.solo}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.state}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.event_name}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.food_preference}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.tshirt_size}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.motorcycle_model}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.registration_number}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.emergency_contact_name}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.emergency_contact_number}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_status}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_ref_no || "-"}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_mode}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.payment_details || "-"}</td>
+                      <td className="px-12 py-6 text-xlfont-semibold">{reg.terms_and_conditions ? "Agreed" : "Not Agreed"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         ) : (
           <p className="text-center text-gray-500 mt-4">No registrations found.</p>
         )}
