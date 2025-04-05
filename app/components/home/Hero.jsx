@@ -19,7 +19,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="hero-content">
+      <div className="hero-content opacity-80">
         <h1>Ride Safe, Ride Again</h1>
         <p>Connecting passionate riders, fostering adventure, and creating lifelong memories.</p>
         <Link href="/events">

@@ -27,7 +27,7 @@ const contactSchema = z.object({
     emergency_contact_name: z.string().min(2, 'Emergency Contact Name is required'),
     emergency_contact_number: z.string().min(10, 'Valid contact number is required'),
     payment_status: z.enum(['Paid', 'Pending']),
-    payment_ref_no: z.string().min(1, 'Payment reference number is required'),
+    payment_ref_no: z.string().min(12, 'Payment reference number is required and should be 12 characters long and number').max(12, 'Payment reference number shouldnt be more than 12 characters long').regex(/^\d+$/, 'Payment reference number should be a number'),
     payment_mode: z.literal('Online'),
     payment_details: z.string().optional(),
     terms_and_conditions: z.boolean().refine((val) => val === true, 'You must agree to the terms and conditions'),
@@ -38,6 +38,7 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(contactSchema),
@@ -54,6 +55,7 @@ export function ContactForm() {
       
       console.log('Form submitted successfully:', data);
       alert('Registration successful!');
+      reset(); // Reset form after successful submission
     } catch (err) {
       console.error('Unexpected error:', err);
     }
@@ -212,7 +214,7 @@ export function ContactForm() {
           <div>
             <input
               {...register('payment_ref_no')}
-              placeholder="Payment Reference Number"
+              placeholder="Payment Transaction ID"
               className="w-full p-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg"
             />
             {errors.payment_ref_no && <p className="text-red-500 text-sm">{errors.payment_ref_no.message}</p>}
@@ -226,7 +228,9 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Terms and Conditions */} <h4>Registration fee -  <span className='text-red-500'> ₹3000 only </span></h4>
+        {/* Terms and Conditions */} 
+        <h4>Registration fee -  <span className='text-red-500'> ₹3000 only </span> </h4>
+        <h4 className='text-green-500' >BYOT (Bring Your Own Tent)</h4>
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
@@ -237,27 +241,28 @@ export function ContactForm() {
         </div>
         {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
       
-      <div className='flex flex-col space-y-4' >
-      <Button
-          onClick={() => setShowQRModal(true)}
-        >
-          Show QR Code for Registration
-        </Button>
-        <Button 
-  className="!bg-green-500 text-white" 
-  onClick={() => {
-    window.open("https://chat.whatsapp.com/LwCb8wZpTEw5oVi1swqoCG", "_blank");
-  }}
-> 
-  Drop the payment screenshot here 📲  
-</Button>
+        <div className='flex flex-col space-y-4'>
+          <Button
+            type="button"
+            onClick={() => setShowQRModal(true)}
+          >
+            Show QR Code for Registration
+          </Button>
+          
+          <Button 
+            type="button"
+            className="!bg-green-500 text-white" 
+            onClick={() => {
+              window.open("https://chat.whatsapp.com/LwCb8wZpTEw5oVi1swqoCG", "_blank");
+            }}
+          > 
+            Drop the payment screenshot here 📲  
+          </Button>
 
-
-        <Button type="submit">
-          Submit Registration
-        </Button>
-      </div>
-      
+          <Button type="submit">
+            Submit Registration
+          </Button>
+        </div>
       </form>
 
       {showQRModal && (
