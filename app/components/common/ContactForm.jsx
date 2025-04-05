@@ -1,10 +1,14 @@
 "use client";
+
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { createClient } from '@supabase/supabase-js';
 import Button from './Button';
 import { useState } from 'react';
+import qr from '../../../public/whatsappimages/qrcode.jpeg';
+import Image from 'next/image';
+import Toast from './Toast';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -35,6 +39,8 @@ const contactSchema = z.object({
 
 export function ContactForm() {
   const [showQRModal, setShowQRModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
   const {
     register,
     handleSubmit,
@@ -44,25 +50,45 @@ export function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  const showToast = (message, type = 'success') => {
+    setToast({ show: true, message, type });
+  };
+
+  const copyUPIId = () => {
+    navigator.clipboard.writeText("12411123@cbin");
+    showToast("UPI ID copied to clipboard!");
+  };
+
   const onSubmit = async (data) => {
+    setIsSubmitting(true);
     try {
       const { error } = await supabase.from('registrations').insert([data]);
       
       if (error) {
         console.error('Error inserting data:', error.message);
+        showToast('Registration failed. Please try again.', 'error');
         return;
       }
       
-      console.log('Form submitted successfully:', data);
-      alert('Registration successful!');
-      reset(); // Reset form after successful submission
+      showToast('Registration successful!');
+      reset();
     } catch (err) {
       console.error('Unexpected error:', err);
+      showToast('An unexpected error occurred', 'error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <>
+      {toast.show && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast({ ...toast, show: false })}
+        />
+      )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Personal Information */}
@@ -246,7 +272,16 @@ export function ContactForm() {
             type="button"
             onClick={() => setShowQRModal(true)}
           >
-            Show QR Code for Registration
+            Show QR Code for Payment
+          </Button>
+
+          <Button
+            type="button"
+            onClick={copyUPIId}
+          >
+            Copy UPI ID for Payment:
+            <br />
+            12411123@cbin
           </Button>
           
           <Button 
@@ -259,8 +294,11 @@ export function ContactForm() {
             Drop the payment screenshot here 📲  
           </Button>
 
-          <Button type="submit">
-            Submit Registration
+          <Button 
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit Registration'}
           </Button>
         </div>
       </form>
@@ -268,28 +306,22 @@ export function ContactForm() {
       {showQRModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowQRModal(false)}>
           <div 
-            className="bg-zinc-800 rounded-lg w-full h-[90vh] max-h-[90vh] flex flex-col overflow-hidden"
+            className="bg-zinc-800 rounded-lg p-4 relative"
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex justify-end p-2 border-b border-zinc-700">
-              <button 
-                onClick={() => setShowQRModal(false)}
-                className="text-white hover:text-gray-300 p-2 text-lg"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="flex-1 relative w-full h-full">
-              <object
-                data="/qrCode.pdf"
-                type="application/pdf"
-                className="absolute inset-0 w-full h-full"
-              >
-                <p className="text-white text-center p-4">
-                  Unable to display PDF. <a href="/qrCode.pdf" className="text-blue-400" target="_blank" rel="noopener noreferrer">Click here to download</a>
-                </p>
-              </object>
-            </div>
+            <button 
+              onClick={() => setShowQRModal(false)}
+              className="absolute right-2 top-2 text-white hover:text-gray-300 p-2 text-lg"
+            >
+              ✕
+            </button>
+            <Image
+              src={qr}
+              alt="QR Code"
+              width={300}
+              height={300}
+              className="rounded-lg"
+            />
           </div>
         </div>
       )}
