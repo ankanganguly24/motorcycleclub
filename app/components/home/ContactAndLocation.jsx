@@ -69,7 +69,7 @@ const ContactAndLocation = () => {
                 <div className="space-y-3">
                   <div>
                     <p className="font-semibold">Rajesh Chettri (Chief)</p>
-                    <p className="text-zinc-400">Pakyong | +91-7798961662</p>
+                    <p className="text-zinc-400">Pakyong | +91-7798761662</p>
                   </div>
                   <div>
                     <p className="font-semibold">Pratap Chettri</p>
@@ -81,12 +81,12 @@ const ContactAndLocation = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Karma Bhutia</p>
-                    <p className="text-zinc-400">Singtam | +91-973341636</p>
+                    <p className="text-zinc-400">Singtam | +91-9733341636</p>
                   </div>
 
                   <div>
                     <p className="font-semibold">MEENAKCHI KANTA SHARMA</p>
-                    <p className="text-zinc-400">GANGTOK | +91-816136419</p>
+                    <p className="text-zinc-400">GANGTOK | +91-8116136419</p>
                   </div>
 
                   <div>
