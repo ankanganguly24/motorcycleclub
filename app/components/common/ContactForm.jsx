@@ -266,6 +266,12 @@ export function ContactForm() {
           <label className="text-white">I agree to the terms and conditions</label>
         </div>
         {errors.terms_and_conditions && <p className="text-red-500 text-sm">{errors.terms_and_conditions.message}</p>}
+
+        <div>
+          <h4 className="text-xl font-semibold text-primary mb-4">EASTERN ENFIELDERS MOTORCYCLE CLUB</h4>
+          <p className="text-white underline">Account Number: 5777276912</p>
+          <p className="text-white underline">IFSC: CBIN0283436</p>
+        </div>
       
         <div className='flex flex-col space-y-4'>
           <Button
@@ -281,7 +287,7 @@ export function ContactForm() {
           >
             Copy UPI ID for Payment:
             <br />
-            12411123@cbin
+            jesanchettri-7@okicici
           </Button>
           
           <Button 
